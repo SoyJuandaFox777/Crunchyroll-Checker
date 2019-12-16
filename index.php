@@ -60,6 +60,8 @@
 
         $resultadoTres = curl_exec($ch);
 
+        echo $resultadoTres;
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlLogout);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -72,7 +74,7 @@
 
         $resultadoCuatro = curl_exec($ch);
 
-        if(strpos($resultadoTres, "Miembro Premium")){
+        if(strpos($resultadoTres, '<a href="http://www.crunchyroll.com/es-es/freetrial?from=memberstar" token="memberstar">')){
             $resultadoTipo = "Cuenta Premium";
         }else if(strpos($resultadoTres, "Gratis")){
             $resultadoTipo = "Cuenta Free";
